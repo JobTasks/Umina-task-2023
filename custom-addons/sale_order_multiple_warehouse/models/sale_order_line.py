@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models
 
@@ -14,7 +13,9 @@ class SaleOrderLine(models.Model):
         self.product_warehouse_id = self.warehouse_id
 
     def _prepare_procurement_values(self, group_id=False):
-        """ Create multiple deliveries by grouping warehouses in sale order lines.
+        """Create multiple deliveries by grouping warehouses in sale order lines.
+
+        If there are two sale order lines with same product it will be grouped to same delivery.
         """
         values = super(SaleOrderLine, self)._prepare_procurement_values(group_id)
         if self.product_warehouse_id:

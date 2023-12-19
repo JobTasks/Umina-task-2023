@@ -12,5 +12,10 @@
     'data': [
         'views/sale_order_views.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'sale_order_multiple_warehouse/static/src/**/*',
+        ],
+    },
     'application': True,
 }
